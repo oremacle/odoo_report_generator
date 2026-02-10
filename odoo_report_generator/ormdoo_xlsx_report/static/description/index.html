@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>XLSX Report Generator</title>
+    </head>
+    <body>
+        <!-- Module logo -->
+        <div style="text-align: center; margin: 20px 0;">
+            <img src="banner.png" alt="XLSX Report Generator" width="300">
+        </div>
+
+        <div style="border: 2px solid #993399; padding: 20px; border-radius: 10px;">
+            <h2 style="color: #993399">Module Overview</h2>
+            <p>
+                The XLSX Report Generator is a powerful Odoo module that helps you create professional Excel reports
+                using only a .xlsx template and Jinja syntax. Generate customized spreadsheets directly from your
+                Odoo data with support for images, formulas, multiple sheets, and advanced formatting.
+            </p>
+
+            <h2 style="color: #993399">Author</h2>
+            <p style="margin-top: 8px;">
+                Olivier Remacle <a href="https://www.ormdoo.com" target="_blank" style="color:#993399;text-decoration:none;">www.ormdoo.com</a>
+            </p>
+            <h2 style="color: #993399">Inspired from</h2>
+            <p>This module inspired from <a href="https://apps.odoo.com/apps/modules/16.0/report_xlsx" target="_blank" style="color:#993399;text-decoration:none;">Report Xlsx</a>.</br>
+            and from module of Ali Ns <a href="https://github.com/alienyst/alnas-xlsx" target="_blank" style="color:#993399;text-decoration:none;">here</a> 
+            </p>
+           
+            <h2 style="color: #993399">Prerequisites</h2>
+            <p>Before installing this module, make sure to install the following libraries:</p>
+            <ul>
+                <li><code>pip install xlsxtpl</code></li>
+            </ul>
+
+            <h2 style="color: #993399">Installation</h2>
+            <ol>
+                <li>Download the module and place it in Odoo <strong>Custom Addons</strong> folder.</li>
+                <li>Restart Odoo Server</li>
+                <li>Go to Odoo UI and Enable <strong>Debug Mode</strong> then open the <strong>Apps</strong> menu.</li>
+                <li>Refresh the list by clicking <strong>Update Apps List</strong>. Finally, you will see <strong>XLSX Report Generator</strong> module and click the <strong>Install</strong> button.</li>
+            </ol>
+
+            <h2 style="color: #993399">How It Works</h2>
+            <style>
+                .how-it-works-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                    gap: 20px;
+                    width: 100%;
+                }
+                .how-it-works-grid > .col-lg-4 {
+                    box-sizing: border-box;
+                    width: 100%;
+                }
+            </style>
+            <div class="how-it-works-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; width:100%;">
+                <div class="col-lg-4" style="width:100% !important; max-width:100% !important;">
+                    <div class="mb-4 d-flex flex-column justify-content-center gap-3"
+                         style="border-radius: 12px; border: 1px solid #B6BCCD; background: #FFF; padding: 32px;">
+                        <div class="d-flex justify-content-center align-items-center"
+                             style="background-color:#993399 !important; border-radius:8px !important; height:42px; width:42px">
+                        </div>
+                        <h5 class="m-0" style="color:#000 !important; font-weight:bold">
+                            Create Template
+                        </h5>
+                        <p class="m-0" style="font-size:0.9rem; color:#993399; font-size: 16px; font-weight: 400;">
+                            Design your report template in Microsoft Excel (.xlsx) using Jinja syntax to reference Odoo fields like {{docs.field_name}}.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4" style="width:100% !important; max-width:100% !important;">
+                    <div class="mb-4 d-flex flex-column justify-content-center gap-3"
+                         style="border-radius: 12px; border: 1px solid #B6BCCD; background: #FFF; padding: 32px;">
+                        <div class="d-flex justify-content-center align-items-center"
+                             style="background-color:#993399 !important; border-radius:8px !important; height:42px; width:42px">
+                        </div>
+                        <h5 class="m-0" style="color:#000 !important; font-weight:bold">
+                            Configure Report
+                        </h5>
+                        <p class="m-0" style="font-size:0.9rem; color:#993399; font-size: 16px; font-weight: 400;">
+                            In Odoo, create an XLSX Report Configuration, select the model, upload your template, and configure your report settings.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4" style="width:100% !important; max-width:100% !important;">
+                    <div class="mb-4 d-flex flex-column justify-content-center gap-3"
+                         style="border-radius: 12px; border: 1px solid #B6BCCD; background: #FFF; padding: 32px;">
+                        <div class="d-flex justify-content-center align-items-center"
+                             style="background-color:#993399 !important; border-radius:8px !important; height:42px; width:42px">
+                        </div>
+                        <h5 class="m-0" style="color:#000 !important; font-weight:bold">
+                            Generate Report
+                        </h5>
+                        <p class="m-0" style="font-size:0.9rem; color:#993399; font-size: 16px; font-weight: 400;">
+                            Print your report from any Odoo record - the module automatically fills in the template with actual data and generates a professional Excel spreadsheet.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 style="color: #993399">Usage Examples</h2>
+            <p><strong>Example template:</strong></p>
+            <img src="assets/template.png" alt="Template Preview" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; margin: 10px 0;">
+            <ol>
+                <li>Sale Order: <a href="https://github.com/oremacle/xlsx-report/raw/19.0/ormdoo_xlsx_report/static/description/example/example.xlsx" target="_blank" style="color:#993399;text-decoration:none;">example.xlsx</a></li>
+                <li>Sale Order with Image Replace: <a href="https://github.com/oremacle/xlsx-report/raw/19.0/ormdoo_xlsx_report/static/description/example/example_with_picture.xlsx" target="_blank" style="color:#993399;text-decoration:none;">example_with_picture.xlsx</a></li>
+                <li>Sale Order with Insert Image: <a href="https://github.com/oremacle/xlsx-report/raw/19.0/ormdoo_xlsx_report/static/description/example/example_with_picture_insert.xlsx" target="_blank" style="color:#993399;text-decoration:none;">example_with_picture_insert.xlsx</a></li>
+            </ol>
+
+            <h2 style="color: #993399">Field Naming Convention</h2>
+            <p>To call and write the field name, use the following format: <code>{{docs.field_name}}</code>, starting with the word "docs".</p>
+
+            <h2 style="color: #993399">Useful Functions (User's Language as default)</h2>
+            <ul>
+                <li><code>{% xv docs.date_field %}</code>: Non-string value for a cell to specify a variable</li>
+                <li><code>{% yn docs.boolean_field %}</code>: return a checkbox base on boolean condition</li>
+                <li><code>{{ spelled_out(docs.numeric_field) }}</code>: Spell out numbers</li>
+                <li><code>{{ formatdate(docs.date_field) }}</code>: Format dates</li>
+                <li><code>{{ convert_currency(docs.monetary_field, docs.currency_id) }}</code>: Format monetary field</li>
+                <li><code>{% insert_img docs.image_field %}</code>: Insert image in cell <em>(image fit to cell)</em></li>
+                <li><code>{% insert_img_cell docs.image_field %}</code>: Insert image in cell <em>(cell fit to image)</em></li>
+                <li><code>{% insert_img_cell docs.image_field, width=200, height=200 %}</code>: Insert image in cell <em>(custom image size)</em></li>
+                <li><code>{% img docs.image_field %}</code>: Replace dummy image with image field, <em>*require dummy image in template</em></li>
+            </ul>
+            <p><strong>Image Replacement Syntax:</strong></p>
+            <img src="assets/replace_image.png" alt="replace image syntax" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; margin: 10px 0;">
+
+            <p><strong>Note:</strong> The functions will be updated as needed.</p>
+            <p>The language is automatically detected from the user's Odoo settings, but can be overridden if needed, example = <code>{{ spelled_out(docs.numeric_field, lang='en_US') }}</code></p>
+
+            <h2 style="color: #993399">Special Excel Features</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+                <div style="background: #f5f5f5; padding: 15px; border-radius: 8px;">
+                    <strong style="color: #993399;">{% xv %}</strong><br>
+                    <span style="font-size: 0.9rem;">Non-string values (numbers, dates as Excel serial numbers)</span>
+                </div>
+                <div style="background: #f5f5f5; padding: 15px; border-radius: 8px;">
+                    <strong style="color: #993399;">{% yn %}</strong><br>
+                    <span style="font-size: 0.9rem;">Checkboxes based on boolean fields</span>
+                </div>
+                <div style="background: #f5f5f5; padding: 15px; border-radius: 8px;">
+                    <strong style="color: #993399;">Multiple Sheets</strong><br>
+                    <span style="font-size: 0.9rem;">Support for multi-sheet Excel templates</span>
+                </div>
+                <div style="background: #f5f5f5; padding: 15px; border-radius: 8px;">
+                    <strong style="color: #993399;">Image Handling</strong><br>
+                    <span style="font-size: 0.9rem;">Insert or replace images with flexible sizing</span>
+                </div>
+            </div>
+
+            <h2 style="color: #993399">Compatibility</h2>
+            <p>
+                Odoo Version: <strong>19.0</strong><br>
+                <strong>License:</strong> LGPL-3<br/>
+                <strong>Depends:</strong> base, web
+            </p>
+
+            <h2 style="color: #993399">Support & Feedback</h2>
+            <p>
+                We welcome any feedback and suggestions, especially for improving this module. Thank you!<br>
+                Website: <a href="https://www.ormdoo.com" target="_blank" style="color:#993399;text-decoration:none;">www.ormdoo.com</a>
+            </p>
+        </div>
+    </body>
+</html>

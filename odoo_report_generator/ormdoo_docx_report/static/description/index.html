@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>DOCX Report Generator</title>
+    </head>
+    <body>
+        <!-- Module logo -->
+        <div style="text-align: center; margin: 20px 0;">
+            <img src="banner.png" alt="DOCX Report Generator" width="300">
+        </div>
+
+        <div style="border: 2px solid #993399; padding: 20px; border-radius: 10px;">
+            <h2 style="color: #993399">Module Overview</h2>
+            <p>
+                The DOCX Report Generator is a powerful Odoo module that helps you create professional reports
+                using only a .docx template and Jinja syntax. Generate customized documents directly from your
+                Odoo data with support for images, HTML content, subdocuments, and advanced formatting.
+            </p>
+
+            <h2 style="color: #993399">Author</h2>
+            <p style="margin-top: 8px;">
+                Olivier Remacle <a href="https://www.ormdoo.com" target="_blank" style="color:#993399;text-decoration:none;">www.ormdoo.com</a>
+            </p>
+           <h2 style="color: #993399">Inspired from</h2>
+            <p>This module inspired from <a href="https://apps.odoo.com/apps/modules/16.0/report_xlsx" target="_blank" style="color:#993399;text-decoration:none;">Report Xlsx</a>.</br>
+            and from module of Ali Ns <a href="https://github.com/alienyst/alnas-docx" target="_blank" style="color:#993399;text-decoration:none;">here</a></p>
+
+            <h2 style="color: #993399">Prerequisites</h2>
+            <p>Before installing this module, make sure to install the following libraries:</p>
+            <p><strong>For Python 3.12 and above:</strong></p>
+            <ul>
+                <li><code>pip install git+https://github.com/tvuotila/docxcompose.git@hotfix/90 docxtpl htmldocx</code></li>
+            </ul>
+            <p><strong>For Python below 3.12:</strong></p>
+            <ul>
+                <li><code>pip install docxcompose docxtpl htmldocx</code></li>
+            </ul>
+
+            <h2 style="color: #993399">Installation</h2>
+            <ol>
+                <li>Download the module and place it in Odoo <strong>Custom Addons</strong> folder.</li>
+                <li>Restart Odoo Server</li>
+                <li>Go to Odoo UI and Enable <strong>Debug Mode</strong> then open the <strong>Apps</strong> menu.</li>
+                <li>Refresh the list by clicking <strong>Update Apps List</strong>. Finally, you will see <strong>DOCX Report Generator</strong> module and click the <strong>Install</strong> button.</li>
+            </ol>
+
+            <h2 style="color: #993399">How It Works</h2>
+            <style>
+                .how-it-works-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                    gap: 20px;
+                    width: 100%;
+                }
+                .how-it-works-grid > .col-lg-4 {
+                    box-sizing: border-box;
+                    width: 100%;
+                }
+            </style>
+            <div class="how-it-works-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; width:100%;">
+                <div class="col-lg-4" style="width:100% !important; max-width:100% !important;">
+                    <div class="mb-4 d-flex flex-column justify-content-center gap-3"
+                         style="border-radius: 12px; border: 1px solid #B6BCCD; background: #FFF; padding: 32px;">
+                        <div class="d-flex justify-content-center align-items-center"
+                             style="background-color:#993399 !important; border-radius:8px !important; height:42px; width:42px">
+                        </div>
+                        <h5 class="m-0" style="color:#000 !important; font-weight:bold">
+                            Create Template
+                        </h5>
+                        <p class="m-0" style="font-size:0.9rem; color:#993399; font-size: 16px; font-weight: 400;">
+                            Design your report template in Microsoft Word (.docx) using Jinja syntax to reference Odoo fields like {{docs.field_name}}.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4" style="width:100% !important; max-width:100% !important;">
+                    <div class="mb-4 d-flex flex-column justify-content-center gap-3"
+                         style="border-radius: 12px; border: 1px solid #B6BCCD; background: #FFF; padding: 32px;">
+                        <div class="d-flex justify-content-center align-items-center"
+                             style="background-color:#993399 !important; border-radius:8px !important; height:42px; width:42px">
+                        </div>
+                        <h5 class="m-0" style="color:#000 !important; font-weight:bold">
+                            Configure Report
+                        </h5>
+                        <p class="m-0" style="font-size:0.9rem; color:#993399; font-size: 16px; font-weight: 400;">
+                            In Odoo, create a DOCX Report Configuration, select the model, upload your template, and choose output mode (composer, zip, or pdf).
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4" style="width:100% !important; max-width:100% !important;">
+                    <div class="mb-4 d-flex flex-column justify-content-center gap-3"
+                         style="border-radius: 12px; border: 1px solid #B6BCCD; background: #FFF; padding: 32px;">
+                        <div class="d-flex justify-content-center align-items-center"
+                             style="background-color:#993399 !important; border-radius:8px !important; height:42px; width:42px">
+                        </div>
+                        <h5 class="m-0" style="color:#000 !important; font-weight:bold">
+                            Generate Report
+                        </h5>
+                        <p class="m-0" style="font-size:0.9rem; color:#993399; font-size: 16px; font-weight: 400;">
+                            Print your report from any Odoo record - the module automatically fills in the template with actual data and generates a professional document.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 style="color: #993399">Usage Example</h2>
+            <p>For usage instructions, you can refer to the following video: <a href="https://www.youtube.com/watch?v=dZvak8yiD5Q" target="_blank" style="color:#993399;text-decoration:none;">Watch Tutorial</a></p>
+            <img src="assets/preview.gif" alt="Video Preview" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; margin: 10px 0;">
+            <p>Example template for sale order: <a href="https://github.com/oremacle/docx-report/raw/19.0/ormdoo_docx_report/static/description/example/example_OpenFuture.docx" target="_blank" style="color:#993399;text-decoration:none;">example_OpenFuture.docx</a></p>
+            <p>Documentation on writing syntax in the document: <a href="https://docxtpl.readthedocs.io/en/stable/" target="_blank" style="color:#993399;text-decoration:none;">https://docxtpl.readthedocs.io/en/stable</a></p>
+
+            <h2 style="color: #993399">Field Naming Convention</h2>
+            <p>To call and write the field name, use the following format: <code>{{docs.field_name}}</code>, starting with the word "docs".</p>
+
+            <h2 style="color: #993399">Useful Functions (User's Language as default)</h2>
+            <ul>
+                <li><code>{{spelled_out(docs.numeric_field)}}</code>: Spell out numbers</li>
+                <li><code>{{formatdate(docs.date_field)}}</code>: Format dates</li>
+                <li><code>{{parsehtml(docs.html_field)}}</code>: Render HTML content as plain text</li>
+                <li><code>{{p html2docx(docs.html_field)}}</code>: Render HTML as subdocument</li>
+                <li><code>{{convert_currency(docs.monetary_field, docs.currency_id)}}</code>: Show monetary field</li>
+                <li><code>{{render_image(docs.image_field)}}</code> or <code>{{render_image(docs.image_field, width=10, height=10)}}</code>: Render image in millimeters</li>
+                <li><code>{{r rich_text(docs.text_field)}}</code>: Show Rich Text</li>
+                <li><code>{{p add_subdoc(docs.docx_binary_field)}}</code>: Add Subdocument</li>
+                <li><code>{{replace_image('file_name_in_word', docs.image_field)}}</code>: Replace the dummy picture in word document with another one</li>
+                <li><code>{{replace_media('file_name_in_word', docs.image_field)}}</code>: Unlike replace_pic() method, dummy_header_pic.jpg MUST exist in the template directory when rendering and saving the generated docx.</li>
+                <li><code>{{replace_embedded('file_name_in_word', docs.binary_field)}}</code>: It works like medias replacement, except it is for embedded objects like embedded docx</li>
+                <li><code>{{replace_zipname('file_path_in_word', docs.binary_field)}}</code>: replace_embedded() may not work on other documents than embedded docx. Instead, you should use zipname replacement</li>
+            </ul>
+            <p><strong>Note:</strong> These functions will be updated as needed.</p>
+            <p>The language is automatically detected from the user's Odoo settings, but it can be overridden. For example: <code>{{spelled_out(docs.numeric_field, lang='en_US')}}</code> <code>{{formatdate(docs.numeric_field, lang='en_US')}}</code> <code>{{convert_currency(docs.numeric_field, locale='en_US')}}</code></p>
+            <p>For format_date and convert_currency, you can use all parameter from babel function <a href="https://babel.pocoo.org/en/latest/api/numbers.html" target="_blank" style="color:#993399;text-decoration:none;">Babel Documentation</a></p>
+
+            <h2 style="color: #993399">DOCX Output Modes</h2>
+            <p>There are three modes for generating docx reports:</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+                <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; text-align: center;">
+                    <strong style="color: #993399;">composer</strong><br>
+                    <span style="font-size: 0.9rem;">Generate a docx file</span>
+                </div>
+                <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; text-align: center;">
+                    <strong style="color: #993399;">zip</strong><br>
+                    <span style="font-size: 0.9rem;">Generate a zip containing the docx file</span>
+                </div>
+                <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; text-align: center;">
+                    <strong style="color: #993399;">pdf</strong><br>
+                    <span style="font-size: 0.9rem;">Convert the docx file to PDF using LibreOffice</span>
+                </div>
+            </div>
+            <p>If you want to use the 'pdf' option, ensure you have installed LibreOffice. Then set the LibreOffice path in Settings => Technical => Parameters => System Parameters, and search for the key <code>default_libreoffice_path</code>. Set the value according to the LibreOffice installation path:</p>
+            <ul>
+                <li><strong>Linux:</strong> <code>/usr/bin/libreoffice</code></li>
+                <li><strong>Windows:</strong> <code>C:\Program Files\LibreOffice\program\soffice.exe</code></li>
+            </ul>
+
+            <h2 style="color: #993399">Compatibility</h2>
+            <p>
+                Odoo Version: <strong>19.0</strong><br>
+                <strong>License:</strong> LGPL-3<br/>
+                <strong>Depends:</strong> base, web
+            </p>
+
+            <h2 style="color: #993399">Credit</h2>
+            <p>Special thanks to <a href="https://github.com/salvorapi" target="_blank" style="color:#993399;text-decoration:none;">Salvo (salvorapi)</a> for helping to update the code from Odoo 16 to Odoo 17.</p>
+
+            <h2 style="color: #993399">Support & Feedback</h2>
+            <p>
+                We welcome any feedback and suggestions, especially for improving this module. Thank you!<br>
+                Website: <a href="https://www.ormdoo.com" target="_blank" style="color:#993399;text-decoration:none;">www.ormdoo.com</a>
+            </p>
+        </div>
+    </body>
+</html>
