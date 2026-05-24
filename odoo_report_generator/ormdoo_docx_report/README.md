@@ -184,7 +184,49 @@ This displays the `sale.order.note` HTML field with **full formatting** (bold, l
 {% endfor %}
 ```
 
-#### Example 5: Conditional Section with Whitespace Control
+#### Example 5: Order Lines with Sections and Notes
+
+In Odoo, a quotation line can have three types, controlled by the `display_type` field:
+
+| `display_type` value | Type | Fields with data |
+|---|---|---|
+| `False` (empty) | Product line | All fields (`product_id`, `price_unit`, `product_uom_qty`, etc.) |
+| `'line_section'` | Section header | `name` only — all numeric fields are `0.0`, `product_id` is `False` |
+| `'line_note'` | Note | `name` only — all numeric fields are `0.0`, `product_id` is `False` |
+
+**Problem:** Iterating over `docs.order_line` without filtering will render section and note lines with their empty values (e.g., `False 0.0 0.0 0.0`).
+
+**Solution:** Use `display_type` as a discriminant in a Jinja2 conditional:
+
+```jinja
+{% for line in docs.order_line %}
+{% if line.display_type == 'line_section' %}
+  {{ line.name }}
+{% elif line.display_type == 'line_note' %}
+  {{ line.name }}
+{% else %}
+  {{ line.name }} - Quantité : {{ line.product_uom_qty }} - Prix : {{ line.price_unit }} €
+{% endif %}
+{% endfor %}
+```
+
+**In a Word table** (typical use case), leave numeric cells empty for sections and notes:
+
+```
+| Désignation        | Qté | Prix unit. | Total  |
+|--------------------|-----|------------|--------|
+| {% for line in docs.order_line %}                         |
+| {% if line.display_type %}                                |
+| {{ line.name }}    |     |            |        |
+| {% else %}                                                |
+| {{ line.name }}    | {{ line.product_uom_qty }} | {{ line.price_unit }} | {{ line.price_subtotal }} |
+| {% endif %}                                               |
+| {% endfor %}                                              |
+```
+
+**Tip:** `{% if line.display_type %}` catches both `'line_section'` and `'line_note'` at once since both are truthy, while a product line has `display_type = False` (falsy). Use `{% if line.display_type == 'line_section' %}` only if you need to distinguish between the two.
+
+#### Example 6: Conditional Section with Whitespace Control
 
 ```jinja
 Section title:
